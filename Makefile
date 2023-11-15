@@ -2,7 +2,7 @@
 # Compiler selection
 #---------------------------------------------------------------------------------------------------
 
-MPICXX	= /usr/local/bin/mpicxx
+MPICXX	= mpicxx
 CXX = g++
 
 #---------------------------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ SRCDIR = src
 # Executables
 #---------------------------------------------------------------------------------------------------
 
-EXE = sync
+EXE = sync-greedy
 
 #---------------------------------------------------------------------------------------------------
 # Object files
@@ -35,7 +35,7 @@ CXXFLAGS = -O3 -Wall -fPIC -fexceptions -DIL_STD -std=c++11 -fno-strict-aliasing
 # Link options and libraries
 #---------------------------------------------------------------------------------------------------
 
-OPENMPI		   	 = /usr/local/lib/openmpi
+OPENMPI		   	 = <OMPI_LIB_PATH>
 
 CXXLNDIRS      = -L$(OPENMPI)
 CXXLNFLAGS     = -lm -lpthread -ldl
@@ -49,7 +49,7 @@ debug: CXXFLAGS += -g
 debug: $(EXE)
 
 
-sync: $(OBJDIR)/main.o
+sync-greedy: $(OBJDIR)/main.o
 	$(MPICXX) -o $@ $(addprefix $(OBJDIR)/, $(SYNCOBJ) main.o)
 
 $(OBJDIR)/main.o:	$(addprefix $(SRCDIR)/, main.cpp) \
