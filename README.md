@@ -2,7 +2,7 @@
 Greedy implementation of the Sync feature selection algorithm.
 
 ## To Use
-Configure the Makefile with the locaion of open mpi libraries amd binary
+Configure the Makefile with the locaion of open mpi libraries and binary
 
 Compile with the Makefile by navigating to the root directory and entering: make
 
